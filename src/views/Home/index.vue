@@ -5,30 +5,29 @@ import SideBar from "../../components/SideBar/index.vue";
 </script>
 
 <template>
-  <div>
+  <div class="all">
     <el-container>
       <el-aside width="200px">
         <side-bar />
       </el-aside>
-      <el-main>
-        <p>home</p>
-        <router-view v-slot="{ Component }">
-          <transition name="move" mode="out-in">
-            <keep-alive>
-              <component :is="Component" />
-            </keep-alive>
-          </transition>
-        </router-view>
-      </el-main>
+      <el-container>
+        <el-main>
+          <router-view v-slot="{ Component }">
+            <transition name="move" mode="out-in">
+              <keep-alive>
+                <component :is="Component" />
+              </keep-alive>
+            </transition>
+          </router-view>
+        </el-main>
+      </el-container>
     </el-container>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.el-aside {
-  width: 200px;
-}
-.el-main {
-  padding-top: 0;
+.all {
+  width: 100%;
+  height: 100%;
 }
 </style>

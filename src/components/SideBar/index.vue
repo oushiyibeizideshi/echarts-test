@@ -14,8 +14,8 @@ const menuList: MenuItem[] = [
     index: "home",
     subs: [
       {
-        title: "首页1",
-        index: "home1",
+        title: "折线图",
+        index: "line",
       },
       {
         title: "首页2",
@@ -43,7 +43,6 @@ const route = useRoute();
 
 <template>
   <div>
-    menu
     <el-menu router style="width: 200px; height: calc(100vh - 60px)">
       <my-sub-menu :menuList="menuList"></my-sub-menu>
     </el-menu>

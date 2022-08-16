@@ -11,4 +11,10 @@ import zhCN from "element-plus/lib/locale/lang/zh-cn";
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+@import "./assets/style/reset.scss";
+body {
+  width: 100%;
+  height: 100%;
+}
+</style>

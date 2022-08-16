@@ -11,9 +11,9 @@ const routes = [
     },
     children: [
       {
-        path: "/",
+        path: "/line",
         name: "Line",
-        component: () => import("../views/Line/index.vue"),
+        component: () => import("../views/Home/Line/index.vue"),
         meta: {
           title: "折线图",
           requireAuth: true,

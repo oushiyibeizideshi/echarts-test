@@ -16,22 +16,18 @@ type Props = {
 };
 
 const props = defineProps<Props>();
-console.log(props);
 </script>
 
 <template>
   <div v-for="item in menuList">
     <el-menu-item v-if="!item.subs?.length" :index="item.index">
       {{ item.title }}
-      {{ item.subs?.length }}
     </el-menu-item>
     <el-sub-menu v-else :index="item.index" :key="item.index">
       <template #title>
-        <span
-          >{{ item.title }}
-          {{ item.subs?.length }}
-        </span>
+        <span>{{ item.title }} </span>
       </template>
+      <my-sub-menu :menuList="item.subs"></my-sub-menu>
     </el-sub-menu>
   </div>
 </template>
