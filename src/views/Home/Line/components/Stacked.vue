@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import * as echarts from "echarts";
 import { onMounted } from "vue";
+import { markRaw } from "vue";
 
+// this.echart = markRaw(echarts.init(charDom))
+
+const unwarp = (obj: any) => obj && (obj.__v_raw || obj.valueOf() || obj);
+// const htmlele = <div id="smoothed"></div>;
 onMounted(() => {
   const myChart = echarts.init(
     document.getElementById("stacked") as HTMLDivElement,
     "dark"
   );
+  const chart2 = markRaw(myChart);
+  const chart3 = unwarp(myChart);
   myChart.setOption({
     title: {
       text: "Stacked Line",
@@ -35,8 +42,15 @@ onMounted(() => {
       borderWidth: 1, //标题边框线宽
       borderRadius: 4, //标题边框圆角
     },
+
     tooltip: {
       trigger: "axis",
+      formatter: (params: any) => {
+        console.log("params", params);
+        let circle = `<span style="display:inline-block;margin-right:5px;border-radius:50%;width:10px;height:10px;left:5px;background-color:`;
+        let data = `${circle}${params[2].color};"></span>`;
+        return `${data}${params[0].name}<br/>${params[0].seriesName} : ${params[0].value}<br/>${params[1].seriesName} : ${params[1].value}`;
+      },
     },
     // 图例组件
     legend: {
@@ -105,6 +119,7 @@ onMounted(() => {
       },
     ],
   });
+  // myChart.setOption();
 });
 </script>
 

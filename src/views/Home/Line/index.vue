@@ -3,6 +3,8 @@ import BasicLine from "./components/BasicLine.vue";
 import Smoothed from "./components/Smoothed.vue";
 import BasicArea from "./components/BasicArea.vue";
 import Stacked from "./components/Stacked.vue";
+import RainfallVsEvaporation from "./components/RainfallVSEvaporation.vue";
+import Linkage from "./components/Linkage.vue";
 </script>
 
 <template>
@@ -19,6 +21,12 @@ import Stacked from "./components/Stacked.vue";
     <div class="chartContainer">
       <stacked />
     </div>
+    <div class="chartContainer">
+      <rainfall-vs-evaporation />
+    </div>
+    <div class="chartContainer">
+      <linkage />
+    </div>
   </div>
 </template>
 
@@ -33,6 +41,7 @@ import Stacked from "./components/Stacked.vue";
     width: 40%;
     height: 300px;
     background-color: #f0f0f0;
+    margin: 20px 10px;
   }
 }
 </style>
